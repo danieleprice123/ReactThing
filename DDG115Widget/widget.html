@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <title>@title@</title>
+    @scripts@
+    @simulation_js@
+    <link rel="stylesheet" href="./assets/index-CwXRkB4R.css"><!-- your built CSS -->
+    <style> html,body,#root { height: 100%; margin: 0; } </style>
+  </head>
+  <body class="widget" paths="@paths@">
+    <!-- Hidden bind anchors that CST requires -->
+    <div id="port-desiredSpeed" runtime="true" pathType="widget" paths="desiredSpeed" style="display:none"></div>
+    <div id="port-totalFuelLoad" runtime="true" pathType="widget" paths="totalFuelLoad" style="display:none"></div>
+
+    <!-- App mount -->
+    <div id="root"></div>
+
+    <script>
+      (function () {
+        // Find the DOM node CST will recognize per port
+        function portEl(path) { return document.querySelector('[paths="' + path + '"]'); }
+
+        // Bridge exposed to your React bundle
+        window.cstBridge = {
+          // App -> Simulation (push)
+          setValue(path, value) {
+            const el = portEl(path);
+            if (el) doSetWidgetValue(el, value);
+          },
+          // Simulation -> App (subscribe)
+          // Your React app can call cstBridge.subscribe(fn) to receive updates
+          _subs: [],
+          subscribe(fn) { this._subs.push(fn); return () => { this._subs = this._subs.filter(f => f!==fn); }; }
+        };
+
+        // CST calls this on any bound value change—fan out to React
+        window.customSetHTMLValue = function (item, data, formattedValue) {
+          const path = item.getAttribute('paths');
+          window.cstBridge._subs.forEach(fn => fn({ path, value: data, formattedValue }));
+        };
+      })();
+    </script>
+
+    <!-- Your built React bundle (Vite/Webpack) -->
+    <script type="module" src="./assets/index-BsB6xLRR.js"></script>
+  </body>
+</html>
