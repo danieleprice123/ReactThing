@@ -10,7 +10,7 @@
     @simulation_js@
 
     <!-- Your built CSS bundle (from /dist) -->
-    <link rel="stylesheet" href="assets/index-C1MPpena.css" />
+    <link rel="stylesheet" href="assets/index-Cb-wIpOR.css" />
 
     <style>
       /* Optional: minimal background so you can see the app area while testing */
@@ -35,7 +35,15 @@
     <input id="port-totalFuelLoad" class="bridge" type="text"
            runtime="true" pathType="widget" paths="totalFuelLoad" />
 
-    <!-- Optional trigger if you call Set Condition 1() from the model -->
+    <input id="port-auxElecLoad" class="bridge" type="text"
+           runtime="true" pathType="widget" paths="auxElecLoad" />
+
+    <input id="port-armElecLoad" class="bridge" type="text"
+           runtime="true" pathType="widget" paths="armElecLoad" />
+
+    <input id="port-c2ElecLoad" class="bridge" type="text"
+           runtime="true" pathType="widget" paths="c2ElecLoad" />
+
     <input id="port-setCondition1Trigger" class="bridge" type="checkbox"
            runtime="true" pathType="widget" paths="setCondition1Trigger" />
 
@@ -96,6 +104,6 @@
     </script>
 
     <!-- Your built JS bundle (from /dist). Vite outputs ESM; keep type="module". -->
-    <script type="module" src="assets/index-CNw7tZAV.js"></script>
+    <script type="module" src="assets/index-C2buJ9z6.js"></script>
   </body>
 </html>
