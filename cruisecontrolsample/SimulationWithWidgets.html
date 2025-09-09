@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=11" />
+		<title>SimulationWithWidgets</title>
+		<link rel="stylesheet" href="css/SimulationWithWidgets.css" type="text/css"/>
+		<link rel="stylesheet" href="css/SimulationDiagram.css" type="text/css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/plotly.min.js"></script>
+		<script src="js/Simulation.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+	</head>
+	<body class="a1 a2" represents="_2021x_1_5630196_1617867953356_774610_5095">
+	<fieldset id="_2021x_1_5630196_1617871028928_524105_7327" style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;min-width: 0; text-overflow: ellipsis; overflow: hidden;" class="a3">
+		<legend style="min-width: 0; max-width: 100%; white-space: nowrap; text-overflow: ellipsis;overflow: hidden;">carDomainModelSimple</legend>
+	<fieldset id="_2021x_1_5630196_1617871102815_595957_7391" style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;min-width: 0; text-overflow: ellipsis; overflow: hidden;" class="a4">
+		<legend style="min-width: 0; max-width: 100%; white-space: nowrap; text-overflow: ellipsis;overflow: hidden;">csm</legend>
+	<fieldset id="_2021x_1_5630196_1617871145369_911223_7424" style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;min-width: 0; text-overflow: ellipsis; overflow: hidden;" class="a5">
+		<legend style="min-width: 0; max-width: 100%; white-space: nowrap; text-overflow: ellipsis;overflow: hidden;">vm</legend>
+	<fieldset id="_2021x_1_5630196_1617871151328_699505_7457" style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;min-width: 0; text-overflow: ellipsis; overflow: hidden;" class="a6">
+		<legend style="min-width: 0; max-width: 100%; white-space: nowrap; text-overflow: ellipsis;overflow: hidden;">brakeDiscPos</legend>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm.brakeDiscPos" type="button" onclick="sendSignal(this, 'IncBrakePos', '_16_9_baa02e2_1297330213671_31710_26914');" id="_2021x_1_5630196_1617871253208_388254_7551" class="a7">IncBrakePos</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm.brakeDiscPos" type="button" onclick="sendSignal(this, 'DecBrakePos', '_16_9_baa02e2_1297330213671_181704_26913');" id="_2021x_1_5630196_1617871255328_953240_7574" class="a8">DecBrakePos</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm.brakeDiscPos" type="button" onclick="sendSignal(this, 'stop', '_16_9_baa02e2_1297330213671_479440_26915');" id="_2021x_1_5630196_1617871257509_281871_7597" class="a9">stop</button>
+	<div class="a10"><label name="v" runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm.brakeDiscPos.v" id="_2021x_1_5630196_1617871302348_991654_7624">v</label></div>
+	</fieldset>
+	<fieldset id="_2021x_1_5630196_1617871193554_842222_7490" style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;min-width: 0; text-overflow: ellipsis; overflow: hidden;" class="a11">
+		<legend style="min-width: 0; max-width: 100%; white-space: nowrap; text-overflow: ellipsis;overflow: hidden;">acc</legend>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm.acc" type="button" onclick="sendSignal(this, 'IncAcc', '_16_9_baa02e2_1297762241661_689160_25276');" id="_2021x_1_5630196_1617871359049_886829_7648" class="a12">IncAcc</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm.acc" type="button" onclick="sendSignal(this, 'DecAcc', '_16_9_baa02e2_1297762239161_45973_25275');" id="_2021x_1_5630196_1617871361209_4159_7671" class="a13">DecAcc</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm.acc" type="button" onclick="sendSignal(this, 'stop', '_16_9_baa02e2_1297762244160_512777_25277');" id="_2021x_1_5630196_1617871363505_662022_7694" class="a14">stop</button>
+	<div class="a15"><label name="v" runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm.acc.v" id="_2021x_1_5630196_1617871389325_334888_7721">v</label></div>
+	</fieldset>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm" type="button" onclick="sendSignal(this, 'StartUp', '_16_9_baa02e2_1297335437375_71630_29709');" id="_2021x_1_5630196_1617871482572_739388_7787" class="a16">StartUp</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm" type="button" onclick="sendSignal(this, 'Forward', '_16_9_baa02e2_1297335374234_225087_29700');" id="_2021x_1_5630196_1617871487824_403719_7810" class="a17">Forward</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm" type="button" onclick="sendSignal(this, 'Reverse', '_16_9_baa02e2_1297335391453_9684_29701');" id="_2021x_1_5630196_1617871490141_422159_7833" class="a18">Reverse</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm" type="button" onclick="sendSignal(this, 'Stop', '_16_9_baa02e2_1298037301530_439754_25878');" id="_2021x_1_5630196_1617871492778_252245_7856" class="a19">Stop</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm" type="button" onclick="sendSignal(this, 'Shutdown', '_16_9_baa02e2_1297335417000_515008_29706');" id="_2021x_1_5630196_1617871500884_18138_7879" class="a20">Shutdown</button>
+	<div id="_2021x_1_5630196_1617889496348_328761_4902" >
+<div runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm.speed" id="Plot_17_0_1_38380511_1303999556351_844322_29894" configID="_17_0_1_38380511_1303999556351_844322_29894" class="a21"></div>
+	</div>
+	<div id="_2021x_1_5630196_1617889568688_135981_4931" >
+<div runtime="true" pathType="name" paths="carDomainModelSimple.csm.vm.torqueEngine" id="Plot_17_0_1_38380511_1304000440689_143696_26532" configID="_17_0_1_38380511_1304000440689_143696_26532" class="a22"></div>
+	</div>
+	</fieldset>
+	<fieldset id="_2021x_1_5630196_1617871675051_167157_7915" style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;min-width: 0; text-overflow: ellipsis; overflow: hidden;" class="a23">
+		<legend style="min-width: 0; max-width: 100%; white-space: nowrap; text-overflow: ellipsis;overflow: hidden;">ccm</legend>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm" type="button" onclick="sendSignal(this, 'Engage', '_16_9_baa02e2_1297339039437_80462_32515');" id="_2021x_1_5630196_1617871729574_666178_7944" class="a24">Engage</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm" type="button" onclick="sendSignal(this, 'Disengage', '_16_9_baa02e2_1297339049609_745353_32516');" id="_2021x_1_5630196_1617871735068_996359_7967" class="a25">Disengage</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm" type="button" onclick="sendSignal(this, 'SetSpeed', '_16_9_baa02e2_1297339076640_494311_32519');" id="_2021x_1_5630196_1617871754694_194173_7990" class="a26">SetSpeed</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm" type="button" onclick="sendSignal(this, 'IncSpeed', '_16_9_baa02e2_1298154404703_81174_28304');" id="_2021x_1_5630196_1617871762896_886278_8013" class="a27">IncSpeed</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm" type="button" onclick="sendSignal(this, 'DecSpeed', '_16_9_baa02e2_1298154422734_539827_28309');" id="_2021x_1_5630196_1617871771016_785733_8036" class="a28">DecSpeed</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm" type="button" onclick="sendSignal(this, 'Suspend', '_16_9_baa02e2_1297339059140_264677_32517');" id="_2021x_1_5630196_1617871785134_956279_8059" class="a29">Suspend</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm" type="button" onclick="sendSignal(this, 'Resume', '_16_9_baa02e2_1297339065984_514997_32518');" id="_2021x_1_5630196_1617871793522_236879_8082" class="a30">Resume</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm" type="button" onclick="sendSignal(this, 'Stop', '_16_9_baa02e2_1297335687968_758209_29776');" id="_2021x_1_5630196_1617871795794_773068_8105" class="a31">Stop</button>
+	<div class="a32"><label id="_2021x_1_5630196_1617881329967_705516_8643">Kp:</label></div>
+	<div class="a33"><input name="pGain" runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm.pGain" type="range" id="_2021x_1_5630196_1617881373791_810111_8676" step="1" min="0" max="15" style="width: inherit; height: inherit;" onchange="setValue(this);" /><div style="margin-top: -20px;display: flex;"><span style="flex: 1.1;margin-left: 4px;">0</span><span style="flex: 1;">1</span><span style="flex: 1;">2</span><span style="flex: 1;">3</span><span style="flex: 1;">4</span><span style="flex: 1;">5</span><span style="flex: 1;">6</span><span style="flex: 1;">7</span><span style="flex: 1;">8</span><span style="flex: 1;">9</span><span style="flex: 1;">10</span><span style="flex: 1;">11</span><span style="flex: 1;">12</span><span style="flex: 1;">13</span><span style="flex: 1;">14</span><span style="flex: 1;text-align: right;">15</span></div></div>
+	<div class="a34"><label id="_2021x_1_5630196_1617881390166_279067_8709">Ki:</label></div>
+	<div class="a35"><label name="pGain" runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm.pGain" id="_2021x_1_5630196_1617881402130_477916_8740">pGain</label></div>
+	<div class="a36"><label name="iGain" runtime="true" pathType="name" paths="carDomainModelSimple.csm.ccm.iGain" id="_2021x_1_5630196_1617881410620_264666_8767">iGain</label></div>
+	</fieldset>
+	</fieldset>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple" type="button" onclick="sendSignal(this, 'Start', '_16_9_baa02e2_1298032789637_764889_24504');" id="_2021x_1_5630196_1617872214054_779068_8280" class="a37">Start Simulation</button>
+	<button runtime="true" pathType="name" paths="carDomainModelSimple" type="button" onclick="sendSignal(this, 'Stop', '_16_9_baa02e2_1298032031673_773712_26803');" id="_2021x_1_5630196_1617872218537_372727_8303" class="a38">Stop Simulation</button>
+	</fieldset>
+	<fieldset id="_2021x_1_5630196_1617880998505_118401_8602" style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;min-width: 0; text-overflow: ellipsis; overflow: hidden;" class="a39">
+		<legend style="min-width: 0; max-width: 100%; white-space: nowrap; text-overflow: ellipsis;overflow: hidden;">Speed</legend>
+		<iframe runtime="true" src="" paths="Speed" parentRepresents="_2021x_1_5630196_1617867953356_774610_5095" represents="_20_0_422014c_1588065583464_242217_2032" style="border: none; width: 100%; height: 100%;"></iframe>
+	</fieldset>
+	<fieldset id="_2021x_1_5630196_1617875465752_673219_8376" style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;min-width: 0; text-overflow: ellipsis; overflow: hidden;" class="a40">
+		<legend style="min-width: 0; max-width: 100%; white-space: nowrap; text-overflow: ellipsis;overflow: hidden;">RefSpeed</legend>
+		<iframe runtime="true" src="" paths="RefSpeed" parentRepresents="_2021x_1_5630196_1617867953356_774610_5095" represents="_20_0_422014c_1587624318892_639550_1705" style="border: none; width: 100%; height: 100%;"></iframe>
+	</fieldset>
+	<fieldset id="_2021x_1_5630196_1617890490801_619893_5106" style="box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;min-width: 0; text-overflow: ellipsis; overflow: hidden;" class="a41">
+		<legend style="min-width: 0; max-width: 100%; white-space: nowrap; text-overflow: ellipsis;overflow: hidden;">TorqueEngine</legend>
+		<iframe runtime="true" src="" paths="TorqueEngine" parentRepresents="_2021x_1_5630196_1617867953356_774610_5095" represents="_20_0_422014c_1588065583464_242217_2032" style="border: none; width: 100%; height: 100%;"></iframe>
+	</fieldset>
+	</body>
+</html>

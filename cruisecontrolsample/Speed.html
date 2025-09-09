@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=11" />
+		<title>Speed</title>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/raphael-min.js"></script>
+		<script type="text/javascript" src="js/kuma-gauge.jquery.js"></script>
+		<script src="js/Simulation.js"></script>
+
+		
+		<style>
+			html {width: 100%; height: 100%;}
+			body {width: inherit; height: inherit; margin: 0; overflow: hidden;}
+		</style>
+	</head>
+	<body class="widget" paths="Speed">
+		<div runtime="true" pathType="widget" paths="value" widgetType="kumaGauge" style="width: inherit; height: inherit;"></div>
+	
+		<script>
+			$("div[widgetType=kumaGauge]").kumaGauge({
+				min : 0,
+				max : 230,
+				paddingX : 10,
+				paddingY : 10,
+				fill: "#ff8d1e",
+				gaugeBackground : "#333333",
+				gaugeWidth : 30,
+				label : {
+					display : true,
+					left : "Min",
+					right : "Max"
+				}
+			});
+		
+			function customSetHTMLValue(item, data, formattedValue) {
+				if (getHTMLType(item) == "kumaGauge") {
+					$(item).kumaGauge("update", { value: data });
+				}
+			}
+		</script>
+	</body>
+</html>
+
