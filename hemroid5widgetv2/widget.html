@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta charset="utf-8" />
+    <title>@title@</title>
+
+    <!-- Cameo/CST scripts (must be before your app so the bridge can call them) -->
+    @scripts@
+    @simulation_js@
+
+    <!-- Your built CSS bundle (from /dist) -->
+    <link rel="stylesheet" href="assets/index-D0mqs59C.css" />
+
+    <style>
+      /* Optional: minimal background so you can see the app area while testing */
+      html, body, #root { height: 100%; }
+      body {
+        margin: 0;
+        font: 14px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      /* background: #0b1220; color: #eef3ff;*/
+      }
+      /* Hidden CST bind anchors — required for CST to bind to ports */
+      .bridge { position: absolute; left: -9999px; width: 1px; height: 1px; }
+    </style>
+  </head>
+
+  <!-- IMPORTANT: keep class="widget" and paths="@paths@" -->
+  <body class="widget" 
+        paths="@paths@"
+        data-signal-path="DDG 115 Mission Simulation"
+        data-signal-id="_2022x_2_207d0442_1757352042194_510872_29984"
+  >
+    <!-- Hidden bind anchors that CST will bind to your Widget ports -->
+    <input id="port-desiredSpeed" class="bridge" type="range"
+           runtime="true" pathType="widget" paths="desiredSpeed"
+           min="0" max="30" step="1" />
+
+    <input id="port-totalFuelLoad" class="bridge" type="text"
+           runtime="true" pathType="widget" paths="totalFuelLoad" />
+
+    <input id="port-auxElecLoad" class="bridge" type="text"
+           runtime="true" pathType="widget" paths="auxElecLoad" />
+
+    <input id="port-armElecLoad" class="bridge" type="text"
+           runtime="true" pathType="widget" paths="armElecLoad" />
+
+    <input id="port-c2ElecLoad" class="bridge" type="text"
+           runtime="true" pathType="widget" paths="c2ElecLoad" />
+
+    <input id="port-totalElecLoad" class="bridge" type="text"
+           runtime="true" pathType="widget" paths="totalElecLoad" />
+
+    <!-- React mount point -->
+    <div id="root"></div>
+
+    <!-- Bridge: makes CST <-> React talk the same way as your working debugWidget -->
+    <script>
+      (function () {
+        // Find the CST-bound DOM node for a given port name
+        function portEl(path) { return document.querySelector('[paths="'+ path +'"]'); }
+
+        // Public bridge for your React app
+        window.cstBridge = {
+          _subs: [],
+          // App -> Simulation
+          setValue(path, value) {
+            const el = portEl(path);
+            if (!el || typeof doSetWidgetValue !== "function") return;
+
+            // Keep hidden element's value in sync (matches your debugWidget pattern)
+            if (el.type === "checkbox") el.checked = !!value;
+            else if ("value" in el) el.value = value;
+
+            doSetWidgetValue(el, value);
+          },
+          // Simulation -> App
+          subscribe(fn) { this._subs.push(fn); return () => { this._subs = this._subs.filter(f => f !== fn); }; },
+          _emit(payload) { this._subs.forEach(fn => { try { fn(payload); } catch(_){} }); }
+        };
+
+        // Called by CST when a bound value changes
+        window.customSetHTMLValue = function (item, data, formattedValue) {
+          const path = item.getAttribute("paths");
+
+          // Keep the hidden control in sync to avoid feedback jitter
+          if (item.type === "checkbox") {
+            const v = !!data;
+            if (item.checked !== v) item.checked = v;
+          } else if ("value" in item) {
+            if (String(item.value) !== String(data)) item.value = data;
+          }
+
+          // Fan out to React
+          window.cstBridge._emit({ path, value: data, formattedValue });
+        };
+
+        // (Optional) Echo pattern like your debugWidget for range control
+        window.customSetValue = function (c) {
+          if (!c || !c.id) return false;
+          if (c.id === "port-desiredSpeed") {
+            if (typeof doSetWidgetValue === "function") doSetWidgetValue(c, c.value);
+            return true;
+          }
+          return false;
+        };
+      })();
+    </script>
+
+    <!-- Your built JS bundle (from /dist). Vite outputs ESM; keep type="module". -->
+    <script type="module" src="assets/index-DfMwlAov.js"></script>
+  </body>
+</html>
